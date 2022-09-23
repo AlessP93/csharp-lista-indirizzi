@@ -9,7 +9,7 @@ while (!indirizzi.EndOfStream);
 {
     string riga = indirizzi.ReadLine(); //scarto la prima riga riga di testo
 
-    string[] split = riga.Split(","); //tolgo la virgola nella lista indirizzi
+    string[] split = riga.Split(","); //divido la riga in sezioni ad ogni virgola
 
     Console.WriteLine(riga); //stampo la riga
 
@@ -23,8 +23,14 @@ while (!indirizzi.EndOfStream);
         string Province = split[4];
         int Zip = int.Parse(split[5]); //Parse = coverte in int32
 
-        //stampo
-        Indirizzo SignleIndirizzo =  new Indirizzo(Name, Surname, Street, City, Province, Zip);
+        //stampo l' indirizzo singolo 
+        Indirizzo SingleIndirizzo =  new Indirizzo(Name, Surname, Street, City, Province, Zip);
+
+        //
+        listaIndirizzi.Add(SingleIndirizzo);
+
+        Console.WriteLine(SingleIndirizzo);
+        indirizzi.ToString();
     }
     catch (Exception e)
     {
