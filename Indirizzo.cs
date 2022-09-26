@@ -18,17 +18,18 @@ public class Indirizzo
         this.Province = province;
         this.Zip = zip;
     }
+    //creo una classe riga (vuota) "/n" = riga a capo
     public override string ToString()
     {
-        string line = "";
-        line += "Name: " + this.Name + "\n";
-        line += "Surname: " + this.Surname + "\n";
-        line += "Street: " + this.Street + "\n";
-        line += "City: " + this.City + "\n";
-        line += "Province: " + this.Province + "\n";
-        line += "ZIP: " + this.Zip + "\n";
-        line += "-------------------";
+        string riga = "";
+        riga += "Name: " + this.Name + "\n";
+        riga += "Surname: " + this.Surname + "\n";
+        riga += "Street: " + this.Street + "\n";
+        riga += "City: " + this.City + "\n";
+        riga += "Province: " + this.Province + "\n";
+        riga += "ZIP: " + this.Zip + "\n";
+        riga += "-------------------";  
 
-        return line;
+        return riga;
     }
 }

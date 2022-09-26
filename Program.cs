@@ -1,17 +1,15 @@
 ﻿
+StreamReader indirizzi = File.OpenText("../../../TextFile1.txt");
 //creo una lista listaIndirizzi
 List<Indirizzo> listaIndirizzi = new List<Indirizzo>();
 
 //leggo il file di testo 
-StreamReader indirizzi = File.OpenText(@"../../../addresses.csv");
-
-while (!indirizzi.EndOfStream);
+indirizzi.ReadLine();
+while (!indirizzi.EndOfStream)
 {
     string riga = indirizzi.ReadLine(); //scarto la prima riga riga di testo
 
     string[] split = riga.Split(","); //divido la riga in sezioni ad ogni virgola
-
-    Console.WriteLine(riga); //stampo la riga
 
     try
     {
@@ -24,18 +22,16 @@ while (!indirizzi.EndOfStream);
         int Zip = int.Parse(split[5]); //Parse = coverte in int32
 
         //stampo l' indirizzo singolo 
-        Indirizzo SingleIndirizzo =  new Indirizzo(Name, Surname, Street, City, Province, Zip);
+        Indirizzo indirizzo =  new Indirizzo(Name, Surname, Street, City, Province, Zip);
 
         //
-        listaIndirizzi.Add(SingleIndirizzo);
-
-        Console.WriteLine(SingleIndirizzo);
-        indirizzi.ToString();
+        listaIndirizzi.Add(indirizzo);
+        Console.WriteLine(indirizzo);
     }
     catch (Exception e)
     {
         Console.WriteLine(e.Message);
     }
 }
-
+indirizzi.Close();
 
